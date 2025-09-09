@@ -30,7 +30,21 @@ async function getDogImage() {
 }
 
 //Generate Cat image API
-
+async function getCatImage() {
+  const out = qs('#cat-output');
+  try {
+    setLoading(out);
+    // cataas JSON gives an id; construct image URL next
+    const res = await fetch('https://cataas.com/cat?json=true');
+    if (!res.ok) throw new Error('Cat API error');
+    const data = await res.json();
+    const url = `https://cataas.com/cat/${data._id}`;
+    out.innerHTML = '';
+    out.appendChild(imgEl(url, 'Random cat'));
+  } catch (e) {
+    setError(out, e.message);
+  }
+}
 
 
 //Generate Weather API
