@@ -28,8 +28,15 @@
 
     <section class="grid-item" id="weather-api">
       <h2>☀️ Weather Info</h2>
+      <div class="controls">
+        <input id="weather-city" type="text" placeholder="City (e.g., Phoenix)" />
+        <select id="weather-units" aria-label="Units">
+          <option value="fahrenheit">°F</option>
+          <option value="celsius">°C</option>
+        </select>
+      </div>
       <button class="btn" onclick="getWeather()">Get Weather</button>
-      <div class="output" id="weather-output" aria-live="polite"></div>
+      <div class="output" id="weather-output" role="status" aria-live="polite"></div>
     </section>
 
     <section class="grid-item" id="currency-api">
